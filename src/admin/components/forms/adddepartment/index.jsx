@@ -47,7 +47,7 @@ class AddDepartment extends Component {
 				redirect: 'follow'
 			};
 
-			await fetch(url + "/admin/AddDepartment", requestOptions)
+			await fetch(url + "/admin/addDepartment", requestOptions)
 				.then(function (response) {
 					return response.json();
 
