@@ -1,1 +1,1 @@
-export const APIURL ="http://localhost/doctor/api/";
+export const APIURL ="https://devslab.io/centrika/api";

@@ -6,11 +6,10 @@ import {
   onShowSizeChange,
 } from "../../../components/paginationfunction";
 
-
 export default function Appointments() {
 
   const [appointments, setAppointments] = useState([]);
-  const [isLoading, setIsLoading] = useState(false);
+  const [setIsLoading] = useState(false);
 
   useEffect(() => {
 
@@ -19,24 +18,16 @@ export default function Appointments() {
   }, []);
 
   const getAppointments = () => {
-
-
     setIsLoading(true);
-
-
     var data = [];
-    var json = "";
-
     const url = Constants.APIURL;
-
-
     var requestOptions = {
       method: 'GET',
       redirect: 'follow'
     };
 
 
-    fetch(url + "admin/appointments", requestOptions)
+    fetch(url + "/admin/appointments", requestOptions)
       .then(function (response) {
         return response.json();
 
@@ -70,8 +61,6 @@ export default function Appointments() {
         console.log(json["message"]);
         setIsLoading(false);
         alert(json["message"]);
-
-        window.location.reload()
 
       });
 
@@ -143,7 +132,7 @@ export default function Appointments() {
     },
     {
       title: "Action",
-      render: (text, record) => (
+      render: (text) => (
         <div className="actions">
           <a
             href="#0"
@@ -152,7 +141,7 @@ export default function Appointments() {
               var conf = confirm("Are you sure to approve ??");
               if (conf) {
                 approveRequest(text);
-                
+
               }
             }}
           >
@@ -162,7 +151,7 @@ export default function Appointments() {
     },
     {
       title: "Action",
-      render: (text, record) => (
+      render: (text) => (
 
         <div className="actions">
           <a

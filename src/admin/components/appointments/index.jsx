@@ -33,7 +33,7 @@ export default function Appointments() {
     };
 
 
-    fetch(url + "admin/appointments", requestOptions)
+    fetch(url + "/admin/appointments", requestOptions)
       .then(function (response) {
         return response.json();
 
