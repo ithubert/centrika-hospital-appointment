@@ -11,7 +11,7 @@ class BookingSuccess extends Component {
                 <div className="card-body">
                   <div className="success-cont">
                     <i className="fas fa-check"></i>
-                    <h3>Appointment booked Successfully!</h3>
+                    <h3>Your appointment request has been successfully received!</h3>
                     <p>
                       We will confirm and get back to you soon
                     </p>

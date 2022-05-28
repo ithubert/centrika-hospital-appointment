@@ -39,7 +39,7 @@ export default function Doctors() {
     };
 
 
-    fetch(url + "admin/doctors", requestOptions)
+    fetch(url + "/gitadmin/doctors", requestOptions)
       .then(function (response) {
         return response.json();
 
@@ -65,7 +65,7 @@ export default function Doctors() {
       render: (text, record) => (
 
         <h2 className="table-avatar">
-          <Link to="/admin/profile">{text}</Link>
+          {text}
         </h2>
       ),
       sorter: (a, b) => a.doctor_fname.length - b.doctor_fname.length,
