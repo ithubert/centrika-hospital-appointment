@@ -134,7 +134,7 @@ export default function Appointments() {
               }
             }}
           >
-            <i className="fe fe-check"></i>Aprove </button>
+            <i className="fe fe-check"></i>Approve </button>
         </div>
       ),
     },

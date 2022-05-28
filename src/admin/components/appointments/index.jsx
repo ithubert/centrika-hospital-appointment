@@ -158,7 +158,7 @@ export default function Appointments() {
               }
             }}
           >
-            <i className="fe fe-check"></i>Aprove </button>
+            <i className="fe fe-check"></i>Approve </button>
         </div>
       ),
     },
@@ -194,7 +194,7 @@ export default function Appointments() {
           <div className="page-header">
             <div className="row">
               <div className="col-sm-12">
-                <h3 className="page-title">List of Appointments</h3>
+                <h3 className="page-title">List of Appointment Requests</h3>
                 <ul className="breadcrumb">
                   <li className="breadcrumb-item">
                     <Link to="/admin">Dashboard</Link>
@@ -202,7 +202,7 @@ export default function Appointments() {
                   <li className="breadcrumb-item">
                     <Link to="#0">Reports</Link>
                   </li>
-                  <li className="breadcrumb-item active">Appointments</li>
+                  <li className="breadcrumb-item active">Appointment Requests</li>
                 </ul>
               </div>
             </div>
