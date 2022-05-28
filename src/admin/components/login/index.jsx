@@ -132,7 +132,7 @@ class Login extends Component {
 												<input className="form-control" type="text" placeholder="Email" onChange={event => this.setState({ email: event.target.value })} />
 											</div>
 											<div className="form-group">
-												<input className="form-control" type="text" placeholder="Password" onChange={event => this.setState({ password: event.target.value })} />
+												<input className="form-control" type="password" placeholder="Password" onChange={event => this.setState({ password: event.target.value })} />
 											</div>
 											<div className="form-group">
 												<button className="btn btn-primary btn-block" type="button" onClick={this.HandleLogin.bind(this)}>Login</button>

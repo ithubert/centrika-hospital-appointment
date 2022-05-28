@@ -141,7 +141,7 @@ export default function Doctors() {
                       rowKey={(record) => record.id}
                       showSizeChanger={true}
                       pagination={{
-                        total: 10,
+                        total: doctors.length,
                         showTotal: (total, range) =>
                           `Showing ${range[0]} to ${range[1]} of ${total} entries`,
                         showSizeChanger: true,

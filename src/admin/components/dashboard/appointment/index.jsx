@@ -90,16 +90,6 @@ export default function Appointments() {
       sorter: (a, b) => a.lname.length - b.lname.length,
     },
     {
-      title: "D. F. Name",
-      dataIndex: "doctor_fname",
-      sorter: (a, b) => a.dfname.length - b.dfname.length,
-    },
-    {
-      title: "D. L. Name",
-      dataIndex: "doctor_lname",
-      sorter: (a, b) => a.dlname.length - b.dlname.length,
-    },
-    {
       title: "P. Email",
       dataIndex: "patient_email",
       sorter: (a, b) => a.patient_email.length - b.patient_email.length,
@@ -108,6 +98,16 @@ export default function Appointments() {
       title: "P. Phone",
       dataIndex: "patient_phone",
       sorter: (a, b) => a.patient_phone.length - b.patient_phone.length,
+    },
+    {
+      title: "D. F. Name",
+      dataIndex: "doctor_fname",
+      sorter: (a, b) => a.dfname.length - b.dfname.length,
+    },
+    {
+      title: "D. L. Name",
+      dataIndex: "doctor_lname",
+      sorter: (a, b) => a.dlname.length - b.dlname.length,
     },
     {
       title: "Date",
