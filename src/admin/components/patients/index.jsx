@@ -37,7 +37,7 @@ export default function Patients() {
     };
 
 
-    fetch(url + "admin/patients", requestOptions)
+    fetch(url + "/admin/patients", requestOptions)
       .then(function (response) {
         return response.json();
 

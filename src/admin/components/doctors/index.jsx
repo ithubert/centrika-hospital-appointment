@@ -39,7 +39,7 @@ export default function Doctors() {
     };
 
 
-    fetch(url + "/gitadmin/doctors", requestOptions)
+    fetch(url + "/admin/doctors", requestOptions)
       .then(function (response) {
         return response.json();
 
@@ -58,6 +58,7 @@ export default function Doctors() {
 
   }
 
+
   const columns = [
     {
       title: "First Name",
@@ -65,7 +66,7 @@ export default function Doctors() {
       render: (text, record) => (
 
         <h2 className="table-avatar">
-          {text}
+          <Link to="#">{text}</Link>
         </h2>
       ),
       sorter: (a, b) => a.doctor_fname.length - b.doctor_fname.length,

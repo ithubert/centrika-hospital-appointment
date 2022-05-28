@@ -38,7 +38,7 @@ export default function Departments() {
     };
 
 
-    fetch(url + "admin/departments", requestOptions)
+    fetch(url + "/admin/departments", requestOptions)
       .then(function (response) {
         return response.json();
 
