@@ -1,0 +1,1 @@
+export const APIURL ="https://devslab.io/centrika/api";
