@@ -6,10 +6,11 @@ import {
   onShowSizeChange,
 } from "../../../components/paginationfunction";
 
+
 export default function Appointments() {
 
   const [appointments, setAppointments] = useState([]);
-  const [setIsLoading] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
 
@@ -18,9 +19,17 @@ export default function Appointments() {
   }, []);
 
   const getAppointments = () => {
+
+
     setIsLoading(true);
+
+
     var data = [];
+    var json = "";
+
     const url = Constants.APIURL;
+
+
     var requestOptions = {
       method: 'GET',
       redirect: 'follow'
@@ -46,11 +55,14 @@ export default function Appointments() {
   const approveRequest = (id) => {
 
     setIsLoading(true);
+
     const url = Constants.APIURL;
+
     var requestOptions = {
       method: 'GET',
       redirect: 'follow'
     };
+
 
     fetch(url + "/admin/aprove?appointment_id=" + id, requestOptions)
       .then(function (response) {
@@ -64,29 +76,6 @@ export default function Appointments() {
 
       });
 
-  }
-
-  const rejectRequest = (id) => {
-
-    setIsLoading(true);
-    const url = Constants.APIURL;
-    var requestOptions = {
-      method: 'GET',
-      redirect: 'follow'
-    };
-
-    fetch(url + "/admin/reject?appointment_id=" + id, requestOptions)
-      .then(function (response) {
-        return response.json();
-
-      })
-      .then(function (json) {
-        console.log(json["message"]);
-        setIsLoading(false);
-        alert(json["message"]);
-        window.location.reload();
-
-      });
   }
 
   const columns = [
@@ -132,20 +121,20 @@ export default function Appointments() {
     },
     {
       title: "Action",
+      dataIndex: "appointment_id",
       render: (text) => (
         <div className="actions">
-          <a
-            href="#0"
+          <button
+            value="Approve"
             className="btn btn-sm bg-success-light"
             onClick={() => {
               var conf = confirm("Are you sure to approve ??");
               if (conf) {
                 approveRequest(text);
-
               }
             }}
           >
-            <i className="fe fe-check"></i> Approve </a>
+            <i className="fe fe-check"></i>Aprove </button>
         </div>
       ),
     },
@@ -155,7 +144,7 @@ export default function Appointments() {
 
         <div className="actions">
           <a
-            href="#0"
+            href="#"
             className="btn btn-sm bg-danger-light"
             onClick={() => {
               var conf = confirm("Are you sure you want to reject this appointment ?");
