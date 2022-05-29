@@ -6,18 +6,13 @@ import Footer from "./client/components/footer.jsx";
 import LoginContainer from "./client/components/login/login.jsx";
 import Register from "./client/components/register/register.jsx";
 import Home from "./client/components/home/index";
-
-
-import Booking from "./client/components/patients/booking";
 import Checkout from "./client/components/patients/checkout";
 import BookingSuccess from "./client/components/patients/booking-success";
-
 import AppUniversal from "./admin/app-universal";
 
 const AppContainer = function (props) {
   if (props) {
     const url = props.location.pathname.split("/")[1];
-
     return (
       <Router basename={`${config.publicPath}`}>
         {
@@ -37,7 +32,6 @@ const AppContainer = function (props) {
                   <Route path="/login" exact component={LoginContainer} />
                   <Route path="/register" exact component={Register} />
                   <Route path="(/|/home)" exact component={Home} />
-                  <Route path="/patient/booking" exact component={Booking} />
 
                   <Route path="/patient/checkout" exact component={Checkout} />
                   <Route

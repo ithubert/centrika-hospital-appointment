@@ -14,6 +14,7 @@ class AddDoctor extends Component {
 			email: "",
 			password: "",
 			statusCode: false,
+			alert: "",
 			message: "",
 			departments: [],
 		}
@@ -69,6 +70,7 @@ class AddDoctor extends Component {
 		let adminId = null
 
 		if (fname === "" || lname === "" || email === "" || phone === "") {
+			this.setState({ department: "", alert: "alert alert-danger" });
 			this.setState({ message: "All fields are required" });
 		} else {
 
@@ -107,21 +109,25 @@ class AddDoctor extends Component {
 
 				})
 
-				this.setState({ message: message });
+				this.setState({ message: message, alert: "alert alert-success" });
 
 			} else {
 
-				this.setState({ message: message }, () => {
+				this.setState({ message: message, alert: "alert alert-danger" }, () => {
 					console.log(this.state.message);
 				})
 			}
+
+			// reset values
+
+			this.setState({ fname: "", lname: "", phone: "", email: "", department: "" });
 
 		}
 
 	}
 
 	render() {
-		const { message } = this.state;
+		const { message, fname, lname, phone, email, alert } = this.state;
 		return (
 			<>
 				<SidebarNav />
@@ -140,37 +146,37 @@ class AddDoctor extends Component {
 						</div>
 						<div className="row">
 							<div className="col-lg-12">
+								<div className={alert}>{message}</div>
 								<div className="card">
 									<div className="card-header">
 										<h4 className="card-title">Doctor's Information </h4>
-										<span className='float-right text-info'>{message}</span>
 									</div>
 									<div className="card-body">
 										<form>
 											<div className="form-group row">
 												<label className="col-form-label col-md-2">First Name</label>
 												<div className="col-md-10">
-													<input type="text" className="form-control" onChange={event => this.setState({ fname: event.target.value })} />
+													<input type="text" className="form-control" onChange={event => this.setState({ fname: event.target.value })} value={fname} />
 												</div>
 											</div>
 											<div className="form-group row">
 												<label className="col-form-label col-md-2">Last Name</label>
 												<div className="col-md-10">
-													<input type="text" className="form-control" onChange={event => this.setState({ lname: event.target.value })} />
+													<input type="text" className="form-control" onChange={event => this.setState({ lname: event.target.value })} value={lname} />
 												</div>
 											</div>
 
 											<div className="form-group row">
 												<label className="col-form-label col-md-2">Email</label>
 												<div className="col-md-10">
-													<input type="text" className="form-control" onChange={event => this.setState({ email: event.target.value })} />
+													<input type="text" className="form-control" onChange={event => this.setState({ email: event.target.value })} value={email} />
 												</div>
 											</div>
 
 											<div className="form-group row">
 												<label className="col-form-label col-md-2">Telephone</label>
 												<div className="col-md-10">
-													<input type="text" className="form-control" onChange={event => this.setState({ phone: event.target.value })} />
+													<input type="text" className="form-control" onChange={event => this.setState({ phone: event.target.value })} value={phone} />
 												</div>
 											</div>
 

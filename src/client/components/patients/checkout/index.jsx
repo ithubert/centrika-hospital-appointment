@@ -18,6 +18,7 @@ class Checkout extends Component {
       date: "",
       time: "",
       statusCode: false,
+      alert: "",
       response: ""
     }
 
@@ -52,6 +53,7 @@ class Checkout extends Component {
 
 
     if (fname === "" || lname === "" || email === "" || phone === "" || date === "" || time === "") {
+      this.setState({ message: message, alert: "alert alert-danger" });
       this.setState({ response: "All fields are required, kindly fill all information!" });
 
     } else {
@@ -91,7 +93,7 @@ class Checkout extends Component {
 
       console.log(code);
 
-      this.setState({ response: message, statusCode: code }, () => {
+      this.setState({ response: message, statusCode: code, alert: "alert alert-danger" }, () => {
         console.log(this.state.response);
 
       })
@@ -102,7 +104,7 @@ class Checkout extends Component {
 
   render() {
 
-    const { response, statusCode } = this.state;
+    const { response, statusCode, alert } = this.state;
 
     if (statusCode === 200) {
       return <Redirect to='/patient/booking-success' />
@@ -120,7 +122,7 @@ class Checkout extends Component {
                     <form>
                       <div className="info-widget">
 
-                        <span className="text-danger">{response}</span> <br />
+                        <div className={alert}>{response}</div>
 
                         <div className="payment-widget">
                           <h4 className="card-title">Date and Time</h4>

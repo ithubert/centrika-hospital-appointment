@@ -2,8 +2,6 @@ import React, { Component } from "react";
 import HomeBanner from "./homebanner";
 import Services from "./services";
 import OurDoctor from "./ourdoctors";
-import OurClient from "./clients";
-import Contactus from "./contact";
 
 class Home extends Component {
   render() {
@@ -13,8 +11,8 @@ class Home extends Component {
           <HomeBanner />
          <Services />
          <OurDoctor />
-        <OurClient />
-        <Contactus />
+        {/* <OurClient />
+        <Contactus /> */}
         </div>
       </div>
     );

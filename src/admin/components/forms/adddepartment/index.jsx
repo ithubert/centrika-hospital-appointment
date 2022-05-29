@@ -10,6 +10,7 @@ class AddDepartment extends Component {
 		this.state = {
 			department: "",
 			statusCode: false,
+			alert: "",
 			message: ""
 		}
 
@@ -33,7 +34,9 @@ class AddDepartment extends Component {
 		let data = null;
 
 		if (department === "") {
-			this.setState({ message: "Department can't be empty" });
+			this.setState({ department: "", alert: "alert alert-danger" });
+			this.setState({ message: "Department field can't be empty" });
+
 		} else {
 
 			const url = Constants.APIURL;
@@ -62,7 +65,7 @@ class AddDepartment extends Component {
 			if (code === 200) {
 				this.setState({ statusCode: true }, () => {
 					console.log(this.state.statusCode);
-
+					this.setState({ department: "", alert: "alert alert-success" });
 				})
 				this.setState({ message: message });
 
@@ -70,6 +73,7 @@ class AddDepartment extends Component {
 			} else {
 
 				this.setState({ message: message }, () => {
+					this.setState({ department: "", alert: "alert alert-danger" });
 					console.log(this.state.message);
 				})
 			}
@@ -80,7 +84,7 @@ class AddDepartment extends Component {
 
 	render() {
 
-		const { statusCode, message } = this.state;
+		const { message, department, alert } = this.state;
 
 		return (
 			<>
@@ -101,17 +105,18 @@ class AddDepartment extends Component {
 						</div>
 						<div className="row">
 							<div className="col-lg-12">
+								<div className={alert}>{message}</div>
 								<div className="card">
 									<div className="card-header">
 										<h4 className="card-title">Department's Information </h4>
-										<span className='float-right text-info'>{message}</span>
 									</div>
 									<div className="card-body">
+
 										<form>
 											<div className="form-group row">
 												<label className="col-form-label col-md-3">Department Name</label>
 												<div className="col-md-9">
-													<input type="text" className="form-control" onChange={event => this.setState({ department: event.target.value })} />
+													<input type="text" className="form-control" onChange={event => this.setState({ department: event.target.value })} value={department} />
 												</div>
 											</div>
 											<button className='btn btn-info float-right' onClick={this.AddDepartment.bind(this)}>Add Department</button>
